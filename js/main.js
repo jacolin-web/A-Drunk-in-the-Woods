@@ -3,7 +3,10 @@ jQuery(document).ready(function($){
 	var modalTrigger = $('.cd-modal-trigger'),
 		transitionLayer = $('.cd-transition-layer'),
 		transitionBackground = transitionLayer.children(),
-		modalWindow = $('.cd-modal');
+		modalWindow = $('.cd-modal'),
+        myVideo = document.getElementById("vid1");
+        //modalVideo = document.getElementsByTagName("video")[0],
+        //att = document.createAttribute("autoplay");       // Create a "autoplay" attribute
 
 	var frameProportion = 1.78, //png frame aspect ratio
 		frames = 25, //number of png frames
@@ -26,6 +29,12 @@ jQuery(document).ready(function($){
 		setTimeout(function(){
 			modalWindow.addClass('visible');
 		}, delay);
+        
+        if (myVideo.paused)
+            myVideo.play();
+        else
+            myVideo.pause();
+       // modalVideo.setAttributeNode(att); 
 	});
 
 	//close modal window
