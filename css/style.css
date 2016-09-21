@@ -43,9 +43,14 @@ Patterns - reusable parts of our design
   -webkit-transition: box-shadow 0.3s;
   -moz-transition: box-shadow 0.3s;
   transition: box-shadow 0.3s;
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
 }
 .no-touch .cd-btn:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
 }
 
 /* -------------------------------- 
@@ -110,13 +115,25 @@ Modal window
   transition: opacity 0.3s 0s, visibility 0s 0.3s;
 }
 .cd-modal .modal-content {
-  height: 100%;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 165vh;
   overflow-y: auto;
   padding: 3em 5%;
   color: #e4dcca;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ display: table;
 }
+
+.cd-modal .modal-content .center {
+  /* vertically align inside parent element */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
 .cd-modal h1 {
   text-align: center;
 }
@@ -363,4 +380,120 @@ http://slicejack.com/fullscreen-html5-video-background-css/
     width: 300%;
     left: -100%;
   }
+}
+
+/* -------------------------------- 
+
+Story line content
+
+-------------------------------- */
+.cd-storyline{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #402f44 url(../img/modal-bg.jpg) no-repeat center center;
+  background-size: cover;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+}
+.cd-storyline .storyline-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 165vh;
+  overflow-y: auto;
+  padding: 3em 5%;
+  color: #e4dcca;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ display: table;
+}
+
+.cd-storyline .storyline-content .center {
+  /* vertically align inside parent element */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cd-modal .modal-close {
+  /* 'X' icon */
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  right: 5%;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3) url(../img/cd-icon-close.svg) no-repeat center center;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: -webkit-transform 0.3s 0s, visibility 0s 0.3s, opacity 0.3s 0s;
+  -moz-transition: -moz-transform 0.3s 0s, visibility 0s 0.3s, opacity 0.3s 0s;
+  transition: transform 0.3s 0s, visibility 0s 0.3s, opacity 0.3s 0s;
+}
+.no-touch .cd-modal .modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.cd-modal.visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.7s, visibility 0s;
+  -moz-transition: opacity 0.7s, visibility 0s;
+  transition: opacity 0.7s, visibility 0s;
+}
+.cd-modal.visible .modal-content {
+  /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+  -webkit-overflow-scrolling: touch;
+}
+.cd-modal.visible .modal-close {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.3s 0s, visibility 0s 0s, opacity 0.3s 0s;
+  -moz-transition: -moz-transform 0.3s 0s, visibility 0s 0s, opacity 0.3s 0s;
+  transition: transform 0.3s 0s, visibility 0s 0s, opacity 0.3s 0s;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+@media only screen and (min-width: 1100px) {
+  .cd-modal .modal-content {
+    padding: 6em 5%;
+  }
+  .cd-modal .modal-close {
+    height: 60px;
+    width: 60px;
+  }
+  .cd-modal p {
+    font-size: 2rem;
+  }
+}
+
+/* -------------------------------- 
+
+Story line buttons
+
+-------------------------------- */
+
+.cd-optionals {
+    opacity: 0.3;
+    margin: 25px;
 }
