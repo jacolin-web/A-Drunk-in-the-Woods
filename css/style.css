@@ -402,7 +402,8 @@ Story line buttons
 -------------------------------- */
 
 .cd-optionals {
-    opacity: 0.3;
+    
+    opacity: 1;
     margin: 20px;
     padding:20px;
 }
