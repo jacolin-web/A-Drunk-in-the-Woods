@@ -1,5 +1,6 @@
-var myVar = setInterval(fade, 1000);
+var opacityIntervals = setInterval(fade, 1000);
 var opacityLevel = 1;
+var setTimer;
 
 function fade() {
      var button = document.getElementsByClassName("cd-optionals");
@@ -22,7 +23,10 @@ function fade() {
             }
             */
         }
-    else(window.location.pathname = "/A Drunk in the Woods/storyline/scene2.html");
-    
-    
+    else(window.location.pathname = "/A-Drunk-in-the-Woods/storyline/scene2.html");
+}
+
+
+function timer() {
+    setTimer = setTimeout(opacityIntervals, 3000);
 }
