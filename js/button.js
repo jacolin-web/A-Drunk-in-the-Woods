@@ -22,7 +22,7 @@ function fade() {
             }
             */
         }
-    else(window.location.pathname = "/storyline/scene2.html");
+    else(window.location.pathname = "/A Drunk in the Woods/storyline/scene2.html");
     
     
 }
