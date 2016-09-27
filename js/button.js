@@ -4,7 +4,7 @@ var opacityLevel = 1;
 function fade() {
      var button = document.getElementsByClassName("cd-optionals");
     
-    if (opacityLevel > 0)
+    if (opacityLevel > .1)
         {
             opacityLevel -= .1;
             var newOpacity = opacityLevel.toString();
@@ -22,7 +22,7 @@ function fade() {
             }
             */
         }
-    else(window.location.pathname = "scene2.html");
+    else(window.location.pathname = "/Users/jacqueline/Schoolwork/ARS 327/A Drunk in the Woods/storyline/scene2.html");
     
     
 }
